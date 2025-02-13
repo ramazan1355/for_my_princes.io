@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для моей любимой</title>
+    <style>
+        body {
+            background-color: #ffebef;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .button {
+            background: #ff4d6d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: #ff4d6d;
+        }
+        .question-buttons {
+            display: none;
+            margin-top: 20px;
+        }
+        .yes-button {
+            background: #ff4d6d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .no-button {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .gallery img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Менин керемет Токанайыма💖</h1>
+        <p>Токанай осы мейрам кутты болсын мен сени оте оте оте катты жаксы корем жаным 💕</p>
+        <div class="heart">❤️</div>
+        <button class="button" onclick="showMessage()">осыган бас</button>
+        <p class="hidden-message" id="hidden-message">💖 жаным ары карайда менин омиримди озинин кулкимен коркем жасай берши  💖</p>
+        <div class="question-buttons" id="question-buttons">
+            <p>сен чертиксын ба?</p>
+            <button class="yes-button" id="yes-button" onclick="alert('Я знал! 😍')">ия</button>
+            <button class="no-button" onclick="increaseYesButton()">жожок</button>
+        </div>
+        <div class="gallery">
+
+        </div>
+    </div>
+    <script>
+        function showMessage() {
+            document.getElementById('hidden-message').style.display = 'block';
+            document.getElementById('question-buttons').style.display = 'block';
+        }
+        
+        function increaseYesButton() {
+            let yesButton = document.getElementById('yes-button');
+            let currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 10) + 'px';
+            yesButton.style.padding = (parseInt(yesButton.style.padding) + 5) + 'px';
+            if (currentSize > 100) {
+                yesButton.style.width = '100%';
+                yesButton.style.height = '100vh';
+            }
+        }
+    </script>
+</body>
+</html>
